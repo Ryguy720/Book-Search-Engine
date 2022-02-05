@@ -6,28 +6,34 @@ const typeDefs = gql`
     username: String
     email: String
     bookCount: String
-    skills: [String]!
+    savedBooks: [Book]!
+  }
+  type Book {
+    bookId: String !
+    authors:[String]!
+    description: String
+    title: String
+    image: String
+    link: String
+
   }
 
   type Auth {
     token: ID!
-    profile: Profile
+    user: User
   }
 
   type Query {
-    profiles: [User]!
-    profile(profileId: ID!): Profile
-    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: User
+    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
+    
   }
 
   type Mutation {
-    saveBook(authors: String!, description: String!, bookID: String!, image: String!, link: String!, title: String!): Auth
+    saveBook(authors: [String]!, description: String!, title: String, bookID: String, image: String, link: String,)
     login(email: String!, password: String!): Auth
 
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile: Profile
-    removeSkill(skill: String!): Profile
+    removeBook(bookID: String):User
   }
 `;
 
