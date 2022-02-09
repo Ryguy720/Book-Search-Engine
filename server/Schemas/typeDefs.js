@@ -32,8 +32,8 @@ const typeDefs = gql`
   type Mutation {
     saveBook(authors: [String]!, description: String!, title: String, bookID: String, image: String, link: String,)
     login(email: String!, password: String!): Auth
-
     removeBook(bookID: String):User
+    createUser(username: String!, password: String!): Auth
   }
 `;
 
