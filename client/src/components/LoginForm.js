@@ -89,4 +89,4 @@ const Login = (props) => {
   );
 };
 
-export default LoginForm;
+export default Login;
