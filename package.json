@@ -17,5 +17,7 @@
   },
   "dependencies": {
     "apollo-server-express": "^2.15.0"
-  }
-}
+  },
+  "homepage": "https://ryguy720.github.io/Book-Search-Engine/"
+    
+  } 
