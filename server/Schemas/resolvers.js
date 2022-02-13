@@ -11,7 +11,7 @@ const resolver = {
         }
     },
     Mutation: {
-        createUser: async (parent, { username, email, password }) => {
+        addUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password })
             const token = signToken(user);
             return { user, token };
@@ -25,7 +25,7 @@ const resolver = {
                 )
             }
         },
-        login: async (parent, { username, email, password }) => {
+        login: async (parent, {email, password }) => {
             const user = await User.findOne({ email })
             if (!user) {
                 throw new AuthenticationError('Wrong email word' );
